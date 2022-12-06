@@ -56,9 +56,9 @@ def load_data():
     Y_test = inf_check[int(len(inf_check) * 0.8):]
     X_test_inf = all_inf[int(len(all_inf) * 0.8):]
 
-    X_train = X_train.repeat(1, 1, 3)
-    X_val = X_val.repeat(1, 1, 3)
-    X_test = X_test.repeat(1, 1, 3)
+    X_train = np.repeat(X_train, 3, axis=3)
+    X_val = np.repeat(X_val, 3, axis=3)
+    X_test = np.repeat(X_test, 3, axis=3)
 
     print("{} {}".format(X_train.shape, Y_train.shape))
     print("{} {}".format(X_val.shape, Y_val.shape))
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     )
     # 在每个训练期之后保存模型，只保存最好的
     checkpoint_cb = callbacks.ModelCheckpoint(
-        "../output/3d_image_classification.h5", save_best_only=True
+        "../output/model_weight", save_best_only=True
     )
 
     # 加载数据集
