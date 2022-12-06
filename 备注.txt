@@ -1,0 +1,6 @@
+昨天训练的代码没保存。
+改动好像就是把源码的
+model = get_model(width=128, height=128)
+改成了
+model = create_model(num_classes=num_classes)
+然后num_classes=1
